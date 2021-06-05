@@ -17,24 +17,34 @@ const Nav = () => {
       </div>
       <div className="menu">
         <div className="menuItem">
-          <IconUser />
-          <div>Profile</div>
+          <a>
+            <IconUser />
+            <div>Profile</div>
+          </a>
         </div>
         <div className="menuItem">
-          <IconTime />
-          <div>Recent Songs</div>
+          <a>
+            <IconTime />
+            <div>Recent Songs</div>
+          </a>
         </div>
         <div className="menuItem">
-          <IconMusic />
-          <div>Top songs</div>
+          <a>
+            <IconMusic />
+            <div>Top songs</div>
+          </a>
         </div>
         <div className="menuItem">
-          <IconMicrophone />
-          <div>Top Artist</div>
+          <a>
+            <IconMicrophone />
+            <div>Top Artist</div>
+          </a>
         </div>
         <div className="menuItem">
-          <IconPlaylist />
-          <div>Playlists</div>
+          <a>
+            <IconPlaylist />
+            <div>Playlists</div>
+          </a>
         </div>
       </div>
       <div className="sourceCode">

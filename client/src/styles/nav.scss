@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  /*background-color: black;*/
+  background-color: black;
   top: 0;
   left: 0;
   z-index: 99;
@@ -26,4 +26,28 @@
 .menu {
   display: flex;
   flex-direction: column;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 7px;
+  }
+}
+
+.menuItem {
+  font-size: 11px;
+  fill: lightgrey;
+  color: lightgrey;
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+
+.sourceCode {
+  fill: grey;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 30px;
 }
