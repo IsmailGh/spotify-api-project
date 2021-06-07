@@ -4,7 +4,7 @@ import SpotifyLogo from "./spotifyLogo";
 import IconPlaylist from "./playlistImage";
 import IconMicrophone from "./artist";
 import IconMusic from "./topSongs";
-import IconGitHub from "./githubLogo";
+import IconInfo from "./Icon";
 
 export {
   IconUser,
@@ -13,5 +13,5 @@ export {
   IconPlaylist,
   IconMicrophone,
   IconMusic,
-  IconGitHub,
+  IconInfo,
 };

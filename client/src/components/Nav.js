@@ -5,50 +5,71 @@ import {
   IconMusic,
   IconMicrophone,
   IconPlaylist,
-  IconGitHub,
+  IconInfo,
 } from "../icons/index";
 import styled from "styled-components/macro";
 import { Link } from "@reach/router";
+import { theme, mixins, media } from "../styles";
+const { colors } = theme;
 
 const Container = styled.nav`
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${mixins.coverShadow};
+  ${mixins.flexBetween};
   flex-direction: column;
   min-height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100px;
-  background-color: #040306;
+  width: ${theme.navWidth};
+  background-color: ${colors.navBlack};
   text-align: center;
   z-index: 99;
+  ${media.tablet`
+    top: auto;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: ${theme.navHeight};
+    height: ${theme.navHeight};
+    flex-direction: row;
+  `};
+  & > * {
+    width: 100%;
+    ${media.tablet`
+      height: 100%;
+    `};
+  }
 `;
 const Logo = styled.div`
-  color: #1db954;
+  color: ${colors.green};
   margin-top: 30px;
   width: 70px;
   height: 70px;
-  transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1);
+  transition: ${theme.transition};
+  ${media.tablet`
+    display: none;
+  `};
   &:hover,
   &:focus {
-    color: #1ed760;
+    color: ${colors.offGreen};
   }
   svg {
     width: 50px;
   }
 `;
 const Github = styled.div`
-  color: #9b9b9b;
+  color: ${colors.lightGrey};
   width: 45px;
   height: 45px;
   margin-bottom: 30px;
+  ${media.tablet`
+    display: none;
+  `};
   a {
     &:hover,
     &:focus,
     &.active {
-      color: #509bf5;
+      color: ${colors.blue};
     }
     svg {
       width: 30px;
@@ -58,22 +79,43 @@ const Github = styled.div`
 const Menu = styled.ul`
   display: flex;
   flex-direction: column;
+  ${media.tablet`
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+  `};
 `;
 const MenuItem = styled.li`
-  color: #9b9b9b;
+  color: ${colors.lightGrey};
   font-size: 11px;
+  ${media.tablet`
+    flex-grow: 1;
+    flex-basis: 100%;
+    height: 100%;
+  `};
   a {
     display: block;
     padding: 15px 0;
     border-left: 5px solid transparent;
     width: 100%;
     height: 100%;
+    ${media.tablet`
+      ${mixins.flexCenter};
+      flex-direction: column;
+      padding: 0;
+      border-left: 0;
+      border-top: 3px solid transparent;
+    `};
     &:hover,
     &:focus,
     &.active {
-      color: #ffffff;
-      background-color: #181818;
-      border-left: 5px solid #1ed760;
+      color: ${colors.white};
+      background-color: ${colors.black};
+      border-left: 5px solid ${colors.offGreen};
+      ${media.tablet`
+        border-left: 0;
+        border-top: 3px solid ${colors.offGreen};
+      `};
     }
   }
   svg {
@@ -102,35 +144,35 @@ const Nav = () => {
           </NavLink>
         </MenuItem>
         <MenuItem>
-          <a>
+          <NavLink to="recent">
             <IconTime />
             <div>Recent Songs</div>
-          </a>
+          </NavLink>
         </MenuItem>
         <MenuItem>
-          <a>
+          <NavLink to="tracks">
             <IconMusic />
             <div>Top songs</div>
-          </a>
+          </NavLink>
         </MenuItem>
         <MenuItem>
-          <a>
+          <NavLink to="artists">
             <IconMicrophone />
             <div>Top Artist</div>
-          </a>
+          </NavLink>
         </MenuItem>
         <MenuItem>
-          <a>
+          <NavLink to="playlists">
             <IconPlaylist />
             <div>Playlists</div>
-          </a>
+          </NavLink>
         </MenuItem>
       </Menu>
-      <div className="sourceCode">
+      <Github>
         <a target="_blank" rel="noopener noreferrer">
-          <IconGitHub />
+          <IconInfo />
         </a>
-      </div>
+      </Github>
     </Container>
   );
 };

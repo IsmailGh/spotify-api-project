@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import getUserInfo from "../api";
+import { getUserInfo, logout } from "../api";
 import SongInfo from "../components/SongInfo";
 import styled from "styled-components/macro";
 import { Link } from "@reach/router";
 import IconUser from "../icons/profileImage";
-
+import Loading from "./Loading";
 import { theme, mixins, media, Main } from "../styles";
 const { colors, fontSizes, spacing } = theme;
 
@@ -213,14 +213,12 @@ const Landing = () => {
               )}
               {totalPlaylists && (
                 <Stat>
-                  <Link to="playlists">
-                    <Number>{totalPlaylists}</Number>
-                    <NumLabel>Playlists</NumLabel>
-                  </Link>
+                  <Number>{totalPlaylists}</Number>
+                  <NumLabel>Playlists</NumLabel>
                 </Stat>
               )}
             </Stats>
-            <LogoutButton>Logout</LogoutButton>
+            <LogoutButton onClick={logout}>Logout</LogoutButton>
           </Header>
 
           <Preview>
@@ -245,7 +243,7 @@ const Landing = () => {
                     ))}
                   </ul>
                 ) : (
-                  <p>Loading</p>
+                  <Loading />
                 )}
               </div>
             </Tracklist>
@@ -260,14 +258,14 @@ const Landing = () => {
                     .slice(0, 10)
                     .map((track, i) => <SongInfo track={track} key={i} />)
                 ) : (
-                  <p>Loading</p>
+                  <Loading />
                 )}
               </ul>
             </Tracklist>
           </Preview>
         </Main>
       ) : (
-        <p>Loading</p>
+        <Loading />
       )}
     </>
   );

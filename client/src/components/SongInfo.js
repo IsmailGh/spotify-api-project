@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
 import styled from "styled-components/macro";
 import { theme, mixins, media } from "../styles";
 const { colors, fontSizes, spacing } = theme;
@@ -16,23 +15,7 @@ const TrackArtwork = styled.div`
   min-width: 50px;
   margin-right: ${spacing.base};
 `;
-const Mask = styled.div`
-  ${mixins.flexCenter};
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: ${colors.white};
-  opacity: 0;
-  transition: ${theme.transition};
-  svg {
-    width: 25px;
-  }
-`;
+
 const TrackContainer = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
@@ -50,10 +33,6 @@ const TrackMeta = styled.div`
 const TrackName = styled.span`
   margin-bottom: 5px;
   border-bottom: 1px solid transparent;
-  &:hover,
-  &:focus {
-    border-bottom: 1px solid ${colors.white};
-  }
 `;
 const TrackAlbum = styled.div`
   ${mixins.overflowEllipsis};
